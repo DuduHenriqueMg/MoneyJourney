@@ -37,7 +37,6 @@ defineProps({
                 </div>
                 <div>
                     <Link :href="route('profile.edit')"><PrimaryButton>Editar Usuário</PrimaryButton></Link>
-
                 </div>
                 
             </div>

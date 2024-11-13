@@ -5,17 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Badge extends Model
+class Lesson extends Model
 {
-
     use HasFactory;
 
-    protected $fillable = [
-        'nome', 'descricao', 'required_score'
-    ];
+    public function modules()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function users()
     {
         return $this->belongsToMany(User::class);
     }
+
 }
