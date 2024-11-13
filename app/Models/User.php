@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Badge::class);
     }
+
+    public function lessons()
+    {
+        return $this->belongsToMany(Badge::class);
+    }
 }
