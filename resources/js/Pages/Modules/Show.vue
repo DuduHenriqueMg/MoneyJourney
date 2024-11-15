@@ -124,7 +124,7 @@ async function selectOption(option, id) {
 
                 <template v-if="currentContent.vantagens">
                     <h3 class="text-lg font-semibold text-white mb-2">Vantagens</h3>
-                    <ul class="list-disc list-inside text-gray-600 mb-4">
+                    <ul class="list-disc list-inside text-gray-200 mb-4">
                         <li v-for="(vantagem, index) in currentContent.vantagens" :key="index" class="mb-1">
                             {{ vantagem }}
                         </li>
