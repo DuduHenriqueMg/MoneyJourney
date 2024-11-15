@@ -4,7 +4,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import axios from 'axios';
 import { Head } from '@inertiajs/vue3';
 import { router, usePage } from '@inertiajs/vue3'
-import { reactive, computed, ref, watchEffect, onMounted } from "vue";
+import { reactive, computed, ref } from "vue";
 
 
 
@@ -13,11 +13,11 @@ const props = defineProps({
 });
 
 const page = usePage()
+const message = ref(null)
 const currentIndexLesson = ref(0)
 const currentIndexContent = ref(0)
 const moduleEnd = ref(false)
-const selectedOption = ref(null);
-const feedbackMessage = ref("")
+const selectedOption = ref('')
 
 
 
@@ -34,13 +34,13 @@ const currentContent = computed(() => {
 
 function nextStep() {
 
+    message.value = null
+    selectedOption.value = null;
 
     if (!moduleEnd.value && currentIndexContent.value < props.module.conteudo.length) {
         return currentIndexContent.value++
     } else if (currentIndexLesson.value < props.module.lessons.length - 1) {
         moduleEnd.value = true
-
-
         return currentIndexLesson.value++
     }
 
@@ -49,28 +49,40 @@ function nextStep() {
 }
 
 function backStep() {
+    message.value = null
+    selectedOption.value = null;
     if (moduleEnd.value == true && currentIndexLesson.value > 0) {
         return currentIndexLesson.value--;
     }
-    moduleEnd.value = false
-    return currentIndexContent.value--;
+    if (currentIndexContent.value > 0) {
+        moduleEnd.value = false
+        return currentIndexContent.value--;
+    }
+    
 
 }
 
- function selectOption(option, id) {
+async function selectOption(option, id) {
     
-    selectedOption.value = option;
-    sessionStorage.setItem('selectedOption', option);
+    
+    
     try {
+        router.post(`/modules/complete/${id}`, {}, { preserveScroll: true })
         
-        router.post(`/modules/complete/${id}`)
-
+        if (option.correct) {
+            message.value = "Lição Concluída! Resposta Certa! ";
+        }else{
+            message.value = "Lição Concluída! Resposta Errada! ";
+        }
+        selectedOption.value = option.text
         
-            
     } catch (error) {
         console.error('Erro ao completar a lição:', error);
     }
+
     
+    
+    console.log(selectedOption.value == option.text);
 }
     
 
@@ -126,15 +138,15 @@ function backStep() {
                     
                     <p class="text-gray-300">{{ currentContent.conteudo.question }}</p>
                     <div v-for="(option, index) in currentContent.conteudo.options" :class="['flex items-center p-4 m-2 rounded-lg cursor-pointer transition-colors',
-                        selectedOption === option ? option.correct ? 'bg-green-500' : 'bg-red-500' : 'bg-gray-800 hover:bg-gray-600']" >
+                         selectedOption == option.text ? (option.correct  ? 'bg-green-500' : 'bg-red-500') : 'bg-gray-800'  ]" >
                         
-                            <input v-model="selectedOption" type="radio" :value="option.text"
+                            <input v-model="selectedOption" type="radio" :value="option"
                             class="w-4 h-4 text-blue-600 bg-gray-300 border-black focus:ring-2  " @click="selectOption(option, currentContent.id)">
                             <label class="ms-2 text-sm font-medium text-gray-300">Opção
                             {{ index + 1 + ": " + option.text }}</label>
                         
                     </div>
-
+                    <p v-if="message" class="text-gray-300">{{ message + currentContent.conteudo.afirmacao }}</p>
                 </template>
 
                 <div class="p-4 grid grid-cols-2 gap-4 text-center">
@@ -160,4 +172,5 @@ function backStep() {
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout></template>
+    </AuthenticatedLayout>
+    </template>

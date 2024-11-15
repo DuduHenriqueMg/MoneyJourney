@@ -80,10 +80,10 @@ defineProps({
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-white">Aprendizado</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-white">Aprendizagem Intuitiva</h2>
 
                             <p class="mt-4 text-gray-300 text-sm leading-relaxed">
-                                Quer aprender sobre finanças e educação financeira de uma maneira intuitiva, rápida e prática? Então a Money Journey é perfeita para você! A plataforma possui módulos de aprendizado com conteudos sobre finanças e investimentos e junto aos módulos tem atividades práticas para você exercitar o que foi apresentado! 
+                                Quer aprender sobre finanças e educação financeira de uma maneira intuitiva, rápida e prática? Então a Money Journey é perfeita para você! A plataforma possui módulos de aprendizado com conteúdos sobre finanças e investimentos e junto aos módulos tem atividades práticas para você exercitar o que foi apresentado! 
                             </p>
                         </div>
 
@@ -125,10 +125,10 @@ defineProps({
                                 </svg>
                             </div>
 
-                            <h2 class="mt-6 text-xl font-semibold text-white">Aprendizado</h2>
+                            <h2 class="mt-6 text-xl font-semibold text-white">Sistema de Recompensas</h2>
 
                             <p class="mt-4 text-gray-300 text-sm leading-relaxed">
-                                Quer aprender sobre finanças e educação financeira de uma maneira intuitiva, rápida e prática? Então a Money Journey é perfeita para você! A plataforma possui módulos de aprendizado com conteudos sobre finanças e investimentos e junto aos módulos tem atividades práticas para você exercitar o que foi apresentado! 
+                                O aplicativo tem um sistema de recompensas que ao completar as lições dos módulos você ganha pontos e sobe de nível, além de ganhar conquistas ao longo da sua jornada de aprendizado!  
                             </p>
                         </div>
 
@@ -156,9 +156,10 @@ defineProps({
             <div class="flex justify-center mt-16 px-6 sm:items-center sm:justify-between">
                 <div class="text-center text-sm sm:text-start">&nbsp;</div>
 
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-end sm:ms-0">
-                    Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
+                <div class="text-center text-sm text-gray-400 dark:text-gray-400 sm:text-end sm:ms-0">
+                  Contatos: gabrielsandresrocha@gmail.com | (61) 99983-6585
                 </div>
+                
             </div>
         </div>
     </div>
