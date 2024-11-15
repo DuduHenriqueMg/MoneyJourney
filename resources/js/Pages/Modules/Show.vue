@@ -20,14 +20,13 @@ const selectedOption = ref(null);
 const feedbackMessage = ref("")
 
 
+
 const currentContent = computed(() => {
     if (moduleEnd.value == false && currentIndexContent.value < props.module.conteudo.length) {
 
         return props.module.conteudo[currentIndexContent.value]
 
     }
-
-
 
     return props.module.lessons[currentIndexLesson.value]
 
@@ -58,18 +57,16 @@ function backStep() {
 
 }
 
-async function selectOption(option, id) {
-    const lessonId = this.currentContent.id
-
+ function selectOption(option, id) {
+    
+    selectedOption.value = option;
+    sessionStorage.setItem('selectedOption', option);
     try {
-        // Envia a requisição POST usando axios
-        router.post(`/modules/complete/${lessonId}`)
+        
+        router.post(`/modules/complete/${id}`)
 
         
-            selectedOption.value = option;
-            alert('Lição concluída!');
             
-        
     } catch (error) {
         console.error('Erro ao completar a lição:', error);
     }
@@ -132,12 +129,10 @@ async function selectOption(option, id) {
                         selectedOption === option ? option.correct ? 'bg-green-500' : 'bg-red-500' : 'bg-gray-800 hover:bg-gray-600']" >
                         
                             <input v-model="selectedOption" type="radio" :value="option.text"
-                            class="w-4 h-4 text-blue-600 bg-gray-300 border-black focus:ring-2  " @click="selectOption(option)">
+                            class="w-4 h-4 text-blue-600 bg-gray-300 border-black focus:ring-2  " @click="selectOption(option, currentContent.id)">
                             <label class="ms-2 text-sm font-medium text-gray-300">Opção
                             {{ index + 1 + ": " + option.text }}</label>
                         
-                        
-
                     </div>
 
                 </template>
@@ -163,9 +158,6 @@ async function selectOption(option, id) {
                 <div>
                     <div></div>
                 </div>
-
-
-
             </div>
         </div>
     </AuthenticatedLayout></template>
