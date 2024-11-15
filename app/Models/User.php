@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'score',
+        'level'
     ];
 
     /**
@@ -48,8 +50,42 @@ class User extends Authenticatable
         return $this->belongsToMany(Badge::class);
     }
 
-    public function lessons()
+    public function completedLessons()
     {
-        return $this->belongsToMany(Badge::class);
+        return $this->belongsToMany(Lesson::class, 'lesson_user')->withPivot('completed')->wherePivot('completed', true);
     }
+
+    public function completeLesson($lessonId)
+    {
+        $this->completedLessons()->attach($lessonId, ['completed' => true]);
+    }
+
+    public function checkForBadges()
+    {
+        
+        $badges = Badge::where('required_score', '<=', $this->score)->get();
+
+        foreach ($badges as $badge) {
+            if (!$this->badges->contains($badge->id)) {
+                $this->badges()->attach($badge->id);
+            }
+        }
+    }
+
+    public function checkLevel()
+    {
+
+        if ($this->score >= 90) {
+            $this->level = 4;
+        }elseif ($this->score >= 50) {
+            $this->level = 3;
+        }elseif ($this->score >= 20){
+            $this->level = 2;
+        }
+
+        $this->save();
+        
+        
+    }
+    
 }

@@ -9,8 +9,14 @@ class Module extends Model
 {
     use HasFactory;
 
-    public function lesson()
+    protected $fillable = ['nome', 'conteudo'];
+
+    protected $casts = [
+        'conteudo' => 'array',
+    ];
+
+    public function lessons()
     {
-        return $this->HasMany(User::class);
+        return $this->HasMany(Lesson::class);
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('conteudo');
+            $table->json('conteudo');
             $table->timestamps();
         });
     }

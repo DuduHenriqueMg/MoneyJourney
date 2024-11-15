@@ -9,6 +9,12 @@ class Lesson extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['module_id', 'nome', 'conteudo', 'pontos'];
+
+    protected $casts = [
+        'conteudo' => 'array',
+    ];
+
     public function modules()
     {
         return $this->belongsTo(User::class);
@@ -18,5 +24,7 @@ class Lesson extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    
 
 }

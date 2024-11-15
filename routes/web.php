@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\ModuleController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -35,7 +37,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::post('/update-score', [ScoreController::class, 'updateScore'])->middleware('auth');
+    
+
+    Route::get('/modules',[ModuleController::class, 'index'])->name('module.index');
+    Route::get('/modules/{id}',[ModuleController::class, 'show'])->name('module.show');
+    Route::get('/lessons',[LessonController::class, 'index'])->name('lesson.index');
+    Route::post('/modules/complete/{id}', [ModuleController::class, 'completeLesson'])->name('module.completelesson');
 });
 
 require __DIR__.'/auth.php';

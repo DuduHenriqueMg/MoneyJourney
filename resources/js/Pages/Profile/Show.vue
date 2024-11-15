@@ -31,7 +31,7 @@ defineProps({
                     <div>
                         <h3>Conquistas: {{ badges.length != 0 ?  '' : 'Você ainda não possui conquistas' }}</h3>
                         <ul>
-                        <li v-for="badge in badges" :key="badge.id">{{ badge.name }}</li>
+                            <li v-for="badge in badges" :key="badge.id">{{ badge.name }}</li>
                         </ul>
                     </div>
                 </div>
