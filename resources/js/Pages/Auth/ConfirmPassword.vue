@@ -22,12 +22,12 @@ const submit = () => {
         <Head title="Confirm Password" />
 
         <div class="mb-4 text-sm text-gray-600">
-            This is a secure area of the application. Please confirm your password before continuing.
+            Essa é uma área segura da aplicação. Confirme sua senha antes de prosseguir.
         </div>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Senha" />
                 <TextInput
                     id="password"
                     type="password"
