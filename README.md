@@ -1,11 +1,11 @@
 # 💸 MoneyJourney - Plataforma Gamificada de Educação Financeira
 
-MoneyJourney é um MVP de uma plataforma web gamificada de educação financeira voltada para jovens desenvolvido na disciplina para a disciplina de Startups. A proposta do projeto é ensinar conceitos financeiros de forma interativa, com um sistema de recompensas, níveis de usuário e módulos de aprendizado baseados em quizzes.
+MoneyJourney é um MVP de uma plataforma web gamificada de educação financeira voltada para jovens que foi desenvolvido para a disciplina de Startups. A proposta do projeto é ensinar conceitos financeiros de forma interativa, com um sistema de recompensas, níveis de usuário e módulos de aprendizado baseados em quizzes.
 
 ## 🚀 Tecnologias Utilizadas
 
 - **Laravel**: Backend robusto em PHP
-- **Vue.js**: Frontend reativo e moderno
+- **Vue.js**: Frontend reativo e moderno usando JavaScript
 - **Inertia.js**: Integração entre Laravel e Vue.js
 - **Laravel Breeze**: Autenticação simples com integração nativa com Inertia
 
@@ -32,10 +32,10 @@ MoneyJourney é um MVP de uma plataforma web gamificada de educação financeira
 ### 📘 Conteúdo do Módulo
 ![Conteúdo](public/screenshots/conteudomodulo.png)
 
-### ❌ Resposta Incorreta no Quiz
+### ❌ Resposta Incorreta no Quiz do Final do Módulo
 ![Lição Errada](public/screenshots/licaoerrada.png)
 
-### ✅ Resposta Certa no Quiz
+### ✅ Resposta Certa no Quiz do Final do Módulo
 ![Lição Correta](public/screenshots/licoes.png)
 
 ### 📊 Progresso do Usuário
