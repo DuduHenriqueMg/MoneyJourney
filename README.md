@@ -1,6 +1,6 @@
 # 💸 MoneyJourney - Plataforma Gamificada de Educação Financeira
 
-MoneyJourney é um MVP desenvolvido na minha disciplina de Startups de uma plataforma web gamificada de educação financeira voltada para jovens. A proposta é ensinar conceitos financeiros de forma interativa, com um sistema de recompensas, níveis de usuário e módulos de aprendizado baseados em quizzes.
+MoneyJourney é um MVP de uma plataforma web gamificada de educação financeira voltada para jovens desenvolvido na disciplina para a disciplina de Startups. A proposta do projeto é ensinar conceitos financeiros de forma interativa, com um sistema de recompensas, níveis de usuário e módulos de aprendizado baseados em quizzes.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -17,8 +17,6 @@ MoneyJourney é um MVP desenvolvido na minha disciplina de Startups de uma plata
 - ✅ Recompensas e pontuação por desempenho
 - ✅ Barra de progresso com visualização do avanço
 - ✅ Interface amigável e responsiva
-
-## 📸 Imagens do Projeto
 
 ## 📸 Imagens do Projeto
 
@@ -51,14 +49,17 @@ MoneyJourney é um MVP desenvolvido na minha disciplina de Startups de uma plata
 ### Pré-requisitos
 
 - PHP >= 8.1
+- Laravel >= 10.10
 - Composer
-- Docker + Docker Compose (recomendado)
 - Node.js e npm
+- Banco de dados no desenvolvimento >= mysql | Use o banco de sua preferência
 
 ### Passos
 
+- Após clonar o repositório crie e configure seu arquivo .env com as configurações do seu banco de dados
+
 ```bash
-# Clone o projeto
+# Clone o projeto em algum diretório
 git clone https://github.com/seu-usuario/moneyjourney.git
 cd moneyjourney
 
@@ -66,10 +67,13 @@ cd moneyjourney
 composer install
 
 # Instale as dependências JS
-npm install && npm run dev
+npm install
 
-# Suba o ambiente com Laravel Sail
-./vendor/bin/sail up -d
+# Rode as migrations do banco
+php artisan migrate --seed
 
-# Rode as migrations e seeders
-./vendor/bin/sail artisan migrate --seed
+# Suba o ambiente JS
+npm run dev
+
+# Suba o projeto
+php artisan serve
