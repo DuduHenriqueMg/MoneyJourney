@@ -52,7 +52,7 @@ MoneyJourney é um MVP de uma plataforma web gamificada de educação financeira
 - Laravel >= 10.10
 - Composer
 - Node.js e npm
-- Banco de dados no desenvolvimento >= mysql | Use o banco de sua preferência
+- Banco de dados usado no desenvolvimento >= mysql | Use o banco de sua preferência
 
 ### Passos
 
