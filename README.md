@@ -20,6 +20,31 @@ MoneyJourney é um MVP desenvolvido na minha disciplina de Startups de uma plata
 
 ## 📸 Imagens do Projeto
 
+## 📸 Imagens do Projeto
+
+### 🎓 Tela de Login
+![Login](public/screenshots/login.png)
+
+### 🏠 Página Inicial
+![Dashboard Inicial](public/screenshots/DashboardInicial.png)
+
+### 📦 Módulos Disponíveis
+![Módulos](public/screenshots/moduloslessons.png)
+
+### 📘 Conteúdo do Módulo
+![Conteúdo](public/screenshots/conteudomodulo.png)
+
+### ❌ Resposta Incorreta no Quiz
+![Lição Errada](public/screenshots/licaoerrada.png)
+
+### ✅ Resposta Certa no Quiz
+![Lição Correta](public/screenshots/licoes.png)
+
+### 📊 Progresso do Usuário
+![Progresso](public/screenshots/progresso.png)
+
+### 👤 Perfil do Usuário
+![Perfil](public/screenshots/infousuario.png)
 
 ## ⚙️ Instalação
 

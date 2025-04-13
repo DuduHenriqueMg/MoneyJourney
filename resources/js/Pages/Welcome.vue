@@ -157,7 +157,7 @@ defineProps({
                 <div class="text-center text-sm sm:text-start">&nbsp;</div>
 
                 <div class="text-center text-sm text-gray-400 dark:text-gray-400 sm:text-end sm:ms-0">
-                  Contatos: gabrielsandresrocha@gmail.com | (61) 99983-6585
+                  Contatos: eduardomoraesg1@gmail.com | (61) 99983-6585
                 </div>
                 
             </div>
